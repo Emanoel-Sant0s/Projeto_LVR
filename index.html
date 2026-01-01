@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto Lvr</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img&gif/apple_logo.png" type="image/png">
+</head>
+<body>
+
+    <!-- Tela de início -->
+    <section id="tela-inicial">
+        <button id="buttonfirst">
+            <img class="heart"  src="https://th.bing.com/th/id/R.ca97bde328433c2497b154afdee5f8d7?rik=d6ydpNI9m7xYQQ&riu=http%3a%2f%2fclipart-library.com%2fimg%2f1447892.gif&ehk=rixPyo6UdpYRpT3%2b8%2fQmteFniDTuhBqbmj8QLa4ldyA%3d&risl=&pid=ImgRaw&r=0" alt="hearth">
+            <h1>Clique aqui</h1></button>
+    </section>
+
+    <!-- Conteúdo principal -->
+
+<section id="bordahome">
+    <div id="music">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
+        <a href="https://open.spotify.com/playlist/2x7fbDdSLDAUDzCv2JSo0F?si=lsm9aaY-S4iZnxVA-QM8ow" target="_blank"><h5>Nossa Playlist!💖</h5></a>
+        <audio controls id="music1" autoplay>
+                <source src="./musics/ALIANÇA - TRIBALISTA.MP3" type="audio/mpeg" id="player">    
+        </audio>
+    </div>
+
+<br>
+
+    <div id="texthome1">
+        <p>     Quero deixar registrado o quanto sou grato por você existir na minha vida. Mesmo sendo baixinha, você tem um coração enorme e uma força que impressiona qualquer um que te conhece. Seu cabelo preto carrega histórias, sonhos e a coragem de quem não desiste fácil. Admiro o jeito como você gosta de sair, aproveitar o final de semana e, ainda assim, nunca perde de vista seus objetivos. Você sabe viver o agora, mas também luta pelo amanhã. 
+                <p>Está tentando vencer na vida, passo a passo, e isso diz muito sobre quem você é. Seu esforço, sua leveza e sua presença tornam meus dias melhores. Obrigado por ser quem você é, por espalhar alegria, por não desistir mesmo quando tudo parece difícil. Torço por você, acredito em você e quero que saiba que não está sozinha nessa caminhada.Com carinho, amor e muita admiração. 💙</p> 
+         </p>
+    </div>
+<br>
+    <div id="videohome1">
+        <img autoplay loop src="./img&gif/pop-cat.gif"></img>
+    </div>
+
+<br>
+
+    <div id="texthome2">
+        <p>
+            Esse vídeo combina muito com você: aquele do gatinho abrindo e fechando a boca. É simples, engraçado e passa uma vibe espontânea, sem esforço — exatamente como o seu jeito.
+            ocê tem essa leveza natural, que deixa o clima da empresa mais descontraído, mesmo nos dias mais corridos. É aquele tipo de energia tranquila que ajuda o time, quebra a tensão e torna a rotina mais agradável, sem forçar nada — simplesmente acontece.
+            <p>No fim, o vídeo representa bem isso: algo pequeno, divertido e marcante. Um detalhe que faz diferença no dia. 🐱</p>
+        </p>
+    </div>
+
+<br>
+
+<section class="float">
+    <a href="status.html"  >
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#a982b0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chess-queen-icon lucide-chess-queen"><path d="M4 20a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="m12.474 5.943 1.567 5.34a1 1 0 0 0 1.75.328l2.616-3.402"/><path d="m20 9-3 9"/><path d="m5.594 8.209 2.615 3.403a1 1 0 0 0 1.75-.329l1.567-5.34"/><path d="M7 18 4 9"/><circle cx="12" cy="4" r="2"/><circle cx="20" cy="7" r="2"/><circle cx="4" cy="7" r="2"/></svg>
+    </a>
+</section>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const telaInicial = document.getElementById("tela-inicial");
+        const bordahome = document.getElementById("bordahome");
+
+        telaInicial.addEventListener("click", () => {
+            telaInicial.style.opacity = "1";
+
+            setTimeout(() => {
+                telaInicial.style.display = "none";
+                bordahome.style.display = "block";
+            }, 800);
+        }); 
+        videohome1.controls = false;
+        music1.controls = false;
+    </script>
+</section>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Projeto Lvr</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img&gif/apple_logo.png" type="image/png">
+</head>
+
+<body>
+
+    <style>
+
+
+
+#musicc {
+            display: flex;
+            align-items: center;
+            gap: 12px ;
+            border: 2px aliceblue solid ;
+            width: 100%;
+            max-width: 390px ;
+            color: rgb(255, 255, 255);
+            border-radius: 100px;
+            margin: auto;
+            padding: 5px 1px 5px 15px ;
+            justify-content: center;
+          }
+
+#musicc a {
+    text-decoration: none;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+/* Indicadores */
+.progress-indicators {
+  display: flex;
+  gap: 5px;
+  margin: 10px;
+  height: 3px;
+}
+
+.indicator {
+  flex: 1;
+  background: rgba(255,255,255,0.3);
+  border-radius: 2px;
+  max-width: 800px;
+}
+
+.indicator.active {
+  background: #fff;
+}
+
+/* Área dos stories */
+.story-area {
+  width: 100%;
+  height: 450px;
+  position: relative;
+}
+
+.story {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story.active {
+  display: block;
+}
+
+/* Texto abaixo da foto */
+.story-text {
+  margin: 10px;
+  text-align: center;
+  color: aliceblue;
+  font-size: 1.2rem;
+  background: transparent;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px rgb(24, 23, 88) solid;
+}
+
+/* Botão de next */
+#next {
+    background-color: transparent;
+    color: #b05e9a;
+    border: none;
+    display: flex;
+    right:40% auto;
+    margin-top: 10px;
+}
+</style>
+<section id="bordahome">
+
+
+        <!-- 🎵 Player de música -->
+        <div id="musicc">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
+            <a href="https://open.spotify.com/playlist/2x7fbDdSLDAUDzCv2JSo0F?si=lsm9aaY-S4iZnxVA-QM8ow" target="_blank"><h5>Nossa Playlist!💖</h5></a>
+            <audio controls id="music" autoplay>
+                    <source src="./musics/ALIANÇA - TRIBALISTA.MP3" type="audio/mpeg" id="player"> 
+            </audio>
+        </div>
+
+    <div class="story-wrapper">
+        <!-- 🔵 Indicadores -->
+        <div class="progress-indicators">
+          <div class="indicator active"></div>
+          <div class="indicator"></div>
+          <div class="indicator"></div>
+          <div class="indicator"></div>
+          <div class="indicator"></div>
+        </div>
+      
+        <!-- 🖼️ Área dos stories -->
+        <div class="story-area">
+          <img class="story active" src="./img&gif/catcrazy.gif" alt="Story 1">
+          <img class="story" src="./img&gif/dog.gif" alt="Story 2">
+          <img class="story" src="./img&gif/leonardo.jpeg " alt="Story 3">
+          <img class="story" src="./img&gif/francivaldo.jpeg" alt="Story 4">
+          <img class="story" src="./img&gif/cockroach.gif" alt="Story 5">
+            
+
+                  <!-- 🔴 Botão de avançar -->
+<button id="next">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-skip-forward-icon lucide-skip-forward"><path d="M21 4v16"/><path d="M6.029 4.285A2 2 0 0 0 3 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z"/></svg>
+</button>
+        </div>
+
+    </div>
+      
+<!-- ✍️ Texto abaixo da foto --> 
+    <div id="story-text" class="story-text"></div>
+
+</section>
+
+
+    
+</body>
+
+<script>
+
+const stories = document.querySelectorAll(".story");
+const indicators = document.querySelectorAll(".indicator");
+const musicPlayer = document.getElementById("music");
+const storyText = document.getElementById("story-text");
+
+let current = 0;
+
+// Lista de músicas correspondentes a cada story
+const musics = [
+  "./musics/DARK RED.MP3",
+  "./musics/EU AMO VOCE.MP3",
+  "./musics/COMO TUDO DEVE SER .MP3",
+  "./musics/GOLDEN HOUR.MP3",
+  "./musics/N1 PARTY ANTHEM.MP3"
+];
+
+// Lista de textos correspondentes a cada story
+const texts = [
+  " Nessa foto você demonstrava estar desconfiado de alguma coisa que não sabemos, mas, acreditamos que seja algo realmente sério, porque tu é uma pessoa incrível e protetora.",
+  " Nessa foto aparenta que algo te assustou e que você foi pego de surpresa e ficou sem reação, porém, adoramos a sua pessoa.",
+  " Você está magrinho, já pensou em fazer um bulking?",
+  " Nessa foto, suponha-se que você tenha sido eternizado na tela de computador de alguém, sinal de que gostam ou estão ironizando você.",
+  " Obrigado por ter visto e agradeço a sua perda de tempo!"
+];
+
+function showStory(index) {
+  stories.forEach((s, i) => {
+    s.classList.toggle("active", i === index);
+    indicators[i].classList.toggle("active", i === index);
+  });
+
+  // Troca música
+  musicPlayer.src = musics[index];
+  musicPlayer.play();
+
+  // Troca texto
+  storyText.textContent = texts[index];
+}
+
+document.getElementById("next").addEventListener("click", () => {
+  current = (current + 1) % stories.length;
+  showStory(current);
+});
+
+// Inicializa
+showStory(current);
+
+music.controls = false;
+
+
+</script>
+</html>
